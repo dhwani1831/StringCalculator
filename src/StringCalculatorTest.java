@@ -79,6 +79,12 @@ public class StringCalculatorTest
     {
         assertEquals(calculator.add("1,2,1001"), 3);
     }
+
+    @Test
+    public void newLineDelimeter() throws Exception
+    {
+        assertEquals(calculator.add("1\n2,3"), 6);
+    }
     
 
 }

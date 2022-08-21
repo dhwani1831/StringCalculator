@@ -1,4 +1,4 @@
-import javax.lang.model.util.ElementScanner6;
+import java.util.ArrayList;
 
 public class StringCalculator
 {
@@ -30,6 +30,7 @@ public class StringCalculator
     private int allowUnknownAmountOfNumber(String[] num) throws Exception
     {
         int sum = 0;
+        ArrayList<String> negative = new ArrayList<String>();
         for (String current : num) {
             if(Character.isAlphabetic(current.charAt(0)))
             {
@@ -40,11 +41,22 @@ public class StringCalculator
             {
                 if(stringToInteger(current)<0)
                 {
-                    throw new Exception("Negative not allowed "+ current);
+                    negative.add(current);
                 }
-                sum += stringToInteger(current);
+                else
+                    sum += stringToInteger(current);
             }
-
+        }
+        if(negative.size()>0)
+        {
+            StringBuilder str = new StringBuilder("");
+            for(String eachNegative:negative)
+            {
+                str.append(eachNegative).append(",");
+            }
+            String allNegativeNumbers = str.toString();
+            allNegativeNumbers = allNegativeNumbers.substring(0, allNegativeNumbers.length() - 1);
+            throw new Exception("Negative not allowed "+ allNegativeNumbers);
         }
         return sum;
     }

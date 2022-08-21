@@ -59,4 +59,21 @@ public class StringCalculatorTest
         fail("Negative number not exists");
     }
 
+    @Test(expected = Exception.class)
+    public void multipleNegativeExceptionMessage() throws Exception
+    {
+        try{
+            calculator.add("-1,-2,-3");
+        }
+        catch(Exception e)
+        {
+            String message = "Negative not allowed -1,-2,-3";
+            assertEquals(message, e.getMessage());
+            throw e;
+        }
+        fail("Negative number not exists");
+    }
+
+    
+
 }

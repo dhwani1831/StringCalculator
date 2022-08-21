@@ -42,4 +42,11 @@ public class StringCalculatorTest
     {
         assertEquals(calculator.add("1,2,a"), 4);
     }
+
+    @Test(expected = Exception.class)
+    public void negativeNotAllowed() throws Exception
+    {
+        calculator.add("-1");
+    }
+
 }

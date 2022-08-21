@@ -49,15 +49,19 @@ public class StringCalculator
         }
         if(negative.size()>0)
         {
-            StringBuilder str = new StringBuilder("");
-            for(String eachNegative:negative)
-            {
-                str.append(eachNegative).append(",");
-            }
-            String allNegativeNumbers = str.toString();
-            allNegativeNumbers = allNegativeNumbers.substring(0, allNegativeNumbers.length() - 1);
-            throw new Exception("Negative not allowed "+ allNegativeNumbers);
+            throwNegativeNumberException(negative);
         }
         return sum;
+    }
+    private void throwNegativeNumberException(ArrayList<String> negative) throws Exception
+    {
+        StringBuilder str = new StringBuilder("");
+        for(String eachNegative:negative)
+        {
+            str.append(eachNegative).append(",");
+        }
+        String allNegativeNumbers = str.toString();
+        allNegativeNumbers = allNegativeNumbers.substring(0, allNegativeNumbers.length() - 1);
+        throw new Exception("Negative not allowed "+ allNegativeNumbers);
     }
 }

@@ -4,7 +4,7 @@ public class StringCalculator
 {
     public int add(String numbers) throws Exception
     {
-        String[] num = numbers.split(",");
+        String[] num = numbers.split(",|\n");
         if(isEmpty(numbers))
             return 0;
         if(numbers.length() == 1)

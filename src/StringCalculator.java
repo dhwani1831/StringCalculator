@@ -8,7 +8,7 @@ public class StringCalculator
         if(numbers.length() == 1)
             return stringToInteger(numbers);
         else
-            return stringToInteger(num[0]) + stringToInteger(num[1]); 
+            return addTwoNumbers(num[0] , num[1]); 
     }
 
     private boolean isEmpty(String numbers)
@@ -18,5 +18,9 @@ public class StringCalculator
     private int stringToInteger(String numbers)
     {
         return Integer.parseInt(numbers);
+    }
+    private int addTwoNumbers(String num1 , String num2)
+    {
+        return stringToInteger(num1) + stringToInteger(num2);
     }
 }

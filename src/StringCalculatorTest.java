@@ -74,6 +74,11 @@ public class StringCalculatorTest
         fail("Negative number not exists");
     }
 
+    @Test
+    public void numberBiggerThenThousand() throws Exception
+    {
+        assertEquals(calculator.add("1,2,1001"), 3);
+    }
     
 
 }

@@ -91,6 +91,12 @@ public class StringCalculatorTest
     {
         assertEquals(calculator.add("//1;\n2,3"), 6);
     }
+
+    @Test
+    public void oddEvenAddition() throws Exception
+    {
+        assertEquals(calculator.add("0//[***]\n1***2***3"), 4);
+    }
     
 
 }

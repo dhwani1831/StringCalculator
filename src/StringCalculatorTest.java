@@ -14,31 +14,31 @@ public class StringCalculatorTest
     };
 
     @Test
-    public void emptyStringReturnZero()
+    public void emptyStringReturnZero() throws Exception
     {
        assertEquals(calculator.add(""), 0);
     }
     
     @Test
-    public void singleStringReturnValue()
+    public void singleStringReturnValue() throws Exception
     {
         assertEquals(calculator.add("1"), 1);
     }
 
     @Test
-    public void addTwoNumbers()
+    public void addTwoNumbers() throws Exception
     {
         assertEquals(calculator.add("1,2"), 3);
     }
 
     @Test
-    public void allowUnknownAmountOfNumber()
+    public void allowUnknownAmountOfNumber() throws Exception
     {
         assertEquals(calculator.add("1,2,3"), 6);
     }
 
     @Test
-    public void allowAlphabetsWithNumbers()
+    public void allowAlphabetsWithNumbers() throws Exception
     {
         assertEquals(calculator.add("1,2,a"), 4);
     }

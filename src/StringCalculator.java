@@ -2,7 +2,7 @@ import javax.lang.model.util.ElementScanner6;
 
 public class StringCalculator
 {
-    public int add(String numbers)
+    public int add(String numbers) throws Exception
     {
         String[] num = numbers.split(",");
         if(isEmpty(numbers))
@@ -27,7 +27,7 @@ public class StringCalculator
     {
         return stringToInteger(num1) + stringToInteger(num2);
     }
-    private int allowUnknownAmountOfNumber(String[] num)
+    private int allowUnknownAmountOfNumber(String[] num) throws Exception
     {
         int sum = 0;
         for (String current : num) {
@@ -37,7 +37,14 @@ public class StringCalculator
                 sum += ch;
             }
             else
+            {
+                if(stringToInteger(current)<0)
+                {
+                    throw new Exception("Negative not allowed");
+                }
                 sum += stringToInteger(current);
+            }
+
         }
         return sum;
     }

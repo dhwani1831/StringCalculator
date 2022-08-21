@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class StringCalculator
 {
-    private String delimeter = "/|;|!|,|\n|@|#|~|`|$|%|^|&|*|(|)|-|+|=|{|}|:|
-    [|]";
+    private String delimeter = "/|;|!|,|\n|@|#|~|`|$|%|^|&|:|\\*";
 
+    private String oddOrEven = "none";
     public int add(String numbers) throws Exception
     {
         String[] num = numbers.split(delimeter);
@@ -15,7 +15,13 @@ public class StringCalculator
         else if(num.length == 2)
             return addTwoNumbers(num[0] , num[1]);
         else
-            return allowUnknownAmountOfNumber(num);
+        {
+            if(numbers.startsWith("0//"))
+                oddOrEven="odd";
+            else if(numbers.startsWith("1//"))
+                oddOrEven="even";
+            return allowUnknownAmountOfNumber(num,oddOrEven);
+        }            
     }
 
     private boolean isEmpty(String numbers)
@@ -30,9 +36,10 @@ public class StringCalculator
     {
         return stringToInteger(num1) + stringToInteger(num2);
     }
-    private int allowUnknownAmountOfNumber(String[] num) throws Exception
+    private int allowUnknownAmountOfNumber(String[] num,String oddOrEven) throws Exception
     {
         int sum = 0;
+        int index=1;
         ArrayList<String> negative = new ArrayList<String>();
         for (String current : num) {
             if(current.isEmpty())
@@ -54,9 +61,22 @@ public class StringCalculator
                 {
                     continue;
                 }
-
                 else
-                    sum += stringToInteger(current);
+                {
+                    if(oddOrEven=="odd" && index%2!=0)
+                    {
+                        sum += stringToInteger(current);                        
+                    }
+                    else if(oddOrEven=="even" && index%2==0)
+                    {
+                        sum += stringToInteger(current);
+                    }
+                    else if(oddOrEven=="none")
+                    {
+                        sum += stringToInteger(current);
+                    }
+                    index++;
+                }                    
             }
         }
         if(negative.size()>0)

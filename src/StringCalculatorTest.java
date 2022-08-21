@@ -94,6 +94,6 @@ public class StringCalculatorTest
     @Test
     public void oddEvenAddition() throws Exception
     {
-        assertEquals(calculator.add("0//[***]\n1***2***3"), 4);
+        assertEquals(calculator.add("1//***\n1***2***3"), 4);
     }
 }

@@ -1,18 +1,27 @@
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class StringCalculatorTest 
 {
+    private StringCalculator calculator;
+
+    @Before
+    public void init()
+    {
+        calculator = new StringCalculator();
+    };
+
     @Test
     public void emptyStringReturnZero()
     {
-        StringCalculator calculator = new StringCalculator();
-        assertEquals(calculator.add(""), 0);
+       assertEquals(calculator.add(""), 0);
     }
+    
     @Test
     public void singleStringReturnValue()
     {
-        StringCalculator calculator = new StringCalculator();
         assertEquals(calculator.add("1"), 1);
     }
 }

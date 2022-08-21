@@ -2,9 +2,11 @@ import java.util.ArrayList;
 
 public class StringCalculator
 {
+    private String delimeter = ",|\n";
+
     public int add(String numbers) throws Exception
     {
-        String[] num = numbers.split(",|\n");
+        String[] num = numbers.split(delimeter);
         if(isEmpty(numbers))
             return 0;
         if(numbers.length() == 1)

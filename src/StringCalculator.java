@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class StringCalculator
 {
-    private String delimeter = ",|\n";
+    private String delimeter = "/|;|!|,|\n";
 
     public int add(String numbers) throws Exception
     {
@@ -34,6 +34,10 @@ public class StringCalculator
         int sum = 0;
         ArrayList<String> negative = new ArrayList<String>();
         for (String current : num) {
+            if(current.isEmpty())
+            {
+                continue;
+            }
             if(Character.isAlphabetic(current.charAt(0)))
             {
                 int ch = current.charAt(0) - 96;
@@ -49,6 +53,7 @@ public class StringCalculator
                 {
                     continue;
                 }
+
                 else
                     sum += stringToInteger(current);
             }

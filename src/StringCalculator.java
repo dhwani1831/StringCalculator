@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 public class StringCalculator
 {
-    private String delimeter = "/|;|!|,|\n";
+    private String delimeter = "/|;|!|,|\n|@|#|~|`|$|%|^|&|*|(|)|-|+|=|{|}|:|
+    [|]";
 
     public int add(String numbers) throws Exception
     {

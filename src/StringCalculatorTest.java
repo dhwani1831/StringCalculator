@@ -30,4 +30,10 @@ public class StringCalculatorTest
     {
         assertEquals(calculator.add("1,2"), 3);
     }
+
+    @Test
+    public void allowUnknownAmountOfNumber()
+    {
+        assertEquals(calculator.add("1,2,3"), 6);
+    }
 }

@@ -1,3 +1,5 @@
+import javax.lang.model.util.ElementScanner6;
+
 public class StringCalculator
 {
     public int add(String numbers)
@@ -7,8 +9,10 @@ public class StringCalculator
             return 0;
         if(numbers.length() == 1)
             return stringToInteger(numbers);
+        else if(num.length == 2)
+            return addTwoNumbers(num[0] , num[1]);
         else
-            return addTwoNumbers(num[0] , num[1]); 
+            return allowUnknownAmountOfNumber(num);
     }
 
     private boolean isEmpty(String numbers)
@@ -22,5 +26,14 @@ public class StringCalculator
     private int addTwoNumbers(String num1 , String num2)
     {
         return stringToInteger(num1) + stringToInteger(num2);
+    }
+    private int allowUnknownAmountOfNumber(String[] num)
+    {
+        int sum = 0;
+        for(int i=0;i<num.length;i++)
+        {
+            sum += stringToInteger(num[i]);
+        }
+        return sum;
     }
 }

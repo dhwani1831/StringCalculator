@@ -31,7 +31,13 @@ public class StringCalculator
     {
         int sum = 0;
         for (String current : num) {
-            sum += stringToInteger(current);
+            if(Character.isAlphabetic(current.charAt(0)))
+            {
+                int ch = current.charAt(0) - 96;
+                sum += ch;
+            }
+            else
+                sum += stringToInteger(current);
         }
         return sum;
     }

@@ -40,7 +40,7 @@ public class StringCalculator
             {
                 if(stringToInteger(current)<0)
                 {
-                    throw new Exception("Negative not allowed");
+                    throw new Exception("Negative not allowed "+ current);
                 }
                 sum += stringToInteger(current);
             }

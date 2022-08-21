@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +47,16 @@ public class StringCalculatorTest
     @Test(expected = Exception.class)
     public void negativeNotAllowed() throws Exception
     {
-        calculator.add("-1");
+        try{
+            calculator.add("-1");
+        }
+        catch(Exception e)
+        {
+            String message = "Negative not allowed -1";
+            assertEquals(message, e.getMessage());
+            throw e;
+        }
+        fail("Negative number not exists");
     }
 
 }

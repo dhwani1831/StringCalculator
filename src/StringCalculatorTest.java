@@ -36,4 +36,10 @@ public class StringCalculatorTest
     {
         assertEquals(calculator.add("1,2,3"), 6);
     }
+
+    @Test
+    public void allowAlphabetsWithNumbers()
+    {
+        assertEquals(calculator.add("1,2,a"), 4);
+    }
 }

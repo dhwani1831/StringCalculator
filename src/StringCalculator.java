@@ -30,9 +30,8 @@ public class StringCalculator
     private int allowUnknownAmountOfNumber(String[] num)
     {
         int sum = 0;
-        for(int i=0;i<num.length;i++)
-        {
-            sum += stringToInteger(num[i]);
+        for (String current : num) {
+            sum += stringToInteger(current);
         }
         return sum;
     }
